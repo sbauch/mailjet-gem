@@ -80,6 +80,7 @@ module Mailjet
         opts = define_options(options)
         self.resource_path = create_action_resource_path(id, job_id) if self.action
         #
+        puts self.resource_path
         attributes = parse_api_json(connection(opts)[id].get(default_headers)).first
         instanciate_from_api(attributes)
 
@@ -152,7 +153,9 @@ module Mailjet
           
          url_elements << job_id.to_s if job_id #if job_id exists, amend it to end of the URI
          url = url_elements.join("/")
-
+         
+        puts url
+        
          return url
       end
 
