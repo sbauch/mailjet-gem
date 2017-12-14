@@ -146,7 +146,10 @@ module Mailjet
          if !(url_elements[1] == "contacts" && self.action == "managemanycontacts")
            url_elements[2] = id.to_s
          end
-
+         
+        puts job_id
+        puts url_elements
+          
          url_elements << job_id.to_s if job_id #if job_id exists, amend it to end of the URI
          url = url_elements.join("/")
 
